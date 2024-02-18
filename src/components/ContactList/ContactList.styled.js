@@ -3,9 +3,9 @@ import styled from '@emotion/styled';
 export const ListWrap = styled.ul`
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
-  width: 400px;
-  padding: ${(p) => p.theme.space[4]}px;
+  padding: ${p => p.theme.space[4]}px;
 `;
 export const List = styled.li`
   padding: 10px;
@@ -13,6 +13,6 @@ export const List = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: ${(p) => p.theme.fontSize.m};
-  color: ${(p) => p.theme.colors.white};
+  font-size: ${p => p.theme.fontSize.m};
+  color: ${p => p.theme.colors.white};
 `;
