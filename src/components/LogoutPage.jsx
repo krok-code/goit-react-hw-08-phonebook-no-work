@@ -9,6 +9,7 @@ const LogoutPage = () => {
 
   useEffect(() => {
     dispatch(logOut());
+    localStorage.removeItem('token');
     history.push('/login');
   }, [dispatch, history]);
 
