@@ -8,13 +8,17 @@ const LogoutPage = () => {
   const history = useHistory();
 
   useEffect(() => {
-    const logoutUser = async () => {
-      await dispatch(logOut());
-      localStorage.removeItem('token');
-      history.push('/login');
+    const handleLogout = async () => {
+      try {
+        await dispatch(logOut());
+        localStorage.removeItem('token');
+        history.push('/login');
+      } catch (error) {
+        console.error('Logout failed:', error);
+      }
     };
 
-    logoutUser();
+    handleLogout();
   }, [dispatch, history]);
 
   return (
