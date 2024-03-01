@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { logIn } from '../../redux/auth/operation';
+
 import {
   Container,
   ContainerBox,
@@ -8,7 +8,8 @@ import {
   Button,
   Title,
   Span,
-} from '../LoginForm/LoginForm.styled';
+} from './LoginForm.styled';
+import { logIn } from '../../redux/auth/operations';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ export const LoginForm = () => {
     e.preventDefault();
     const form = e.currentTarget;
     dispatch(
+      // * здесь передаем то что просит бекенд
       logIn({
         email: form.elements.email.value,
         password: form.elements.password.value,
@@ -28,7 +30,7 @@ export const LoginForm = () => {
   return (
     <Container>
       <Title>Login</Title>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} autoComplete="off">
         <ContainerBox>
           <Input
             type="email"

@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { register } from '../../redux/auth/operation';
+
 import {
   Container,
   ContainerBox,
@@ -9,6 +9,7 @@ import {
   Title,
   Span,
 } from '../LoginForm/LoginForm.styled';
+import { register } from '../../redux/auth/operations';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ export const RegisterForm = () => {
   return (
     <Container>
       <Title>Register</Title>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} autoComplete="off">
         <ContainerBox>
           <Input
             type="text"
@@ -72,5 +73,3 @@ export const RegisterForm = () => {
     </Container>
   );
 };
-
-export default RegisterForm;

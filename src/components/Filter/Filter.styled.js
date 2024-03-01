@@ -1,10 +1,15 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
-export const FormFilter = styled.form`
-display: flex;
-justify-content: center;
-`
-export const LabelFilter = styled.label`
-color: ${(p) => p.theme.colors.grey};
-`
-export const InputFilter = styled.input``
+export const FilterCont = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+`;
+
+export const Input = styled.input`
+  height: 25px;
+  border-radius: ${props => props.theme.spacing(2)};
+  margin-top: 15px;
+  cursor: pointer;
+`;

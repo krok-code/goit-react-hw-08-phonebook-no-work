@@ -1,30 +1,28 @@
-import React from 'react';
-import { FormFilter, LabelFilter } from './Filter.styled';
-import { Input } from '../FormList/FormList.styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { getFilter } from '../../redux/contacts/selectors';
-import { changeFilter } from '../../redux/contacts/filterSlice';
+import { FilterCont, Input } from './Filter.styled';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { getFilterValue } from '../../redux/selectors';
+import { setFilterValue } from '../../redux/filter/slice';
 
-const Filter = () => {
-  const value = useSelector(getFilter);
+export default function Filter() {
   const dispatch = useDispatch();
+  const filterValue = useSelector(getFilterValue);
 
-  const handleChange = e => {
-    dispatch(changeFilter(e.target.value));
+  const onSearchValue = e => {
+    dispatch(setFilterValue(e.target.value));
   };
 
   return (
-    <FormFilter>
-      <LabelFilter>
-        <Input
-          type="name"
-          value={value}
-          onChange={handleChange}
-          placeholder="Please enter a name to search"
-        />
-      </LabelFilter>
-    </FormFilter>
-  );
-};
+    <FilterCont>
+      <label htmlFor="filter">Find contacts by name</label>
 
-export default Filter;
+      <Input
+        type="text"
+        value={filterValue}
+        id="filter"
+        onChange={onSearchValue}
+        placeholder="Jacob Mercer"
+      />
+    </FilterCont>
+  );
+}

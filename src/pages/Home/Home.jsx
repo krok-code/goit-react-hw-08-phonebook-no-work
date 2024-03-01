@@ -1,12 +1,14 @@
-import { Container, Title, Link } from './Home.styled';
+import { Container, Title } from './Home.styled';
 
 export default function Home() {
   return (
     <Container>
-      <Title>Welcome to Phonebook</Title>
-      <Link to="/login" title="Try it now!">
-        Try it now!
-      </Link>
+      <Title>
+        Phonebook manager welcome page{' '}
+        <span role="img" aria-label="Greeting icon">
+          👨‍👩‍👧‍👦
+        </span>
+      </Title>
     </Container>
   );
 }
